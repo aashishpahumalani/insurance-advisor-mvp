@@ -1,0 +1,101 @@
+# Insurance Advisor API Test Commands
+
+@baseUrl = http://localhost:3001
+
+### Test 1: Young Professional (High Risk Tolerance)
+POST {{baseUrl}}/recommendation
+Content-Type: application/json
+
+{
+  "age": 25,
+  "income": 60000,
+  "dependents": 1,
+  "riskTolerance": "high"
+}
+
+### Test 2: Middle-aged Conservative (Low Risk)
+POST {{baseUrl}}/recommendation
+Content-Type: application/json
+
+{
+  "age": 45,
+  "income": 90000,
+  "dependents": 3,
+  "riskTolerance": "low"
+}
+
+### Test 3: Young Family (Medium Risk)
+POST {{baseUrl}}/recommendation
+Content-Type: application/json
+
+{
+  "age": 32,
+  "income": 75000,
+  "dependents": 2,
+  "riskTolerance": "medium"
+}
+
+### Test 4: Senior Citizen (Low Risk)
+POST {{baseUrl}}/recommendation
+Content-Type: application/json
+
+{
+  "age": 65,
+  "income": 45000,
+  "dependents": 0,
+  "riskTolerance": "low"
+}
+
+### Test 5: High-Income Individual (High Risk)
+POST {{baseUrl}}/recommendation
+Content-Type: application/json
+
+{
+  "age": 38,
+  "income": 150000,
+  "dependents": 4,
+  "riskTolerance": "high"
+}
+
+### Test 6: Single Young Adult (Medium Risk)
+POST {{baseUrl}}/recommendation
+Content-Type: application/json
+
+{
+  "age": 28,
+  "income": 65000,
+  "dependents": 0,
+  "riskTolerance": "medium"
+}
+
+### Test 7: Validation Error Test (Invalid Age)
+POST {{baseUrl}}/recommendation
+Content-Type: application/json
+
+{
+  "age": 15,
+  "income": 50000,
+  "dependents": 0,
+  "riskTolerance": "medium"
+}
+
+### Test 8: Validation Error Test (Invalid Risk Tolerance)
+POST {{baseUrl}}/recommendation
+Content-Type: application/json
+
+{
+  "age": 30,
+  "income": 50000,
+  "dependents": 1,
+  "riskTolerance": "invalid"
+}
+
+### Get All Submissions
+GET {{baseUrl}}/recommendation/submissions
+
+### Get Specific Submission (replace with actual UUID from previous responses)
+GET {{baseUrl}}/recommendation/submissions/{{submissionId}}
+
+### Variables for dynamic testing
+# Set this variable with an actual UUID from a previous response
+@submissionId = 123e4567-e89b-12d3-a456-426614174000
